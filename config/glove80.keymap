@@ -10,14 +10,15 @@
 #define LAYER_Magic 2
 #define LAYER_Special 3
 #define LAYER_Mouse 4
-#define LAYER_Arrow 5
-#define LAYER_Func 6
-#define LAYER_Macro0 7
-#define LAYER_Macro1 8
-#define LAYER_Macro2 9
-#define LAYER_Macro3 10
-#define LAYER_Macro4 11
-#define LAYER_Macro5 12
+#define LAYER_Mouse2 5
+#define LAYER_Arrow 6
+#define LAYER_Func 7
+#define LAYER_Macro0 8
+#define LAYER_Macro1 9
+#define LAYER_Macro2 10
+#define LAYER_Macro3 11
+#define LAYER_Macro4 12
+#define LAYER_Macro5 13
 
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 3500
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 1
@@ -228,7 +229,7 @@
                 &trans          &all_mod Q      &all_mod W      &all_mod F      &all_mod P      &all_mod B                                                                                                      &all_mod J      &all_mod L      &all_mod U      &all_mod Y      &trans          &trans
                 &trans          &kp RA(W)       &all_mod R      &all_mod S      &kp LC(F23)     &all_mod G                                                                                                      &all_mod M      &all_mod N      &kp RA(Z)       &all_mod I      &kp RA(L)       &trans
                 &trans          &all_mod Z      &all_mod X      &all_mod C      &all_mod D      &all_mod V      &kp LSHIFT      &trans          &trans          &trans          &trans          &trans          &all_mod K      &all_mod H      &all_mod COMMA  &all_mod DOT    &trans          &trans
-                &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans                          &mo LAYER_Mouse &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans
             >;
         };
 
@@ -239,6 +240,17 @@
                 &none           &none           &none           &msc MOVE_UP    &none           &none                                                                                                           &none           &none           &mmv MOVE_UP    &none           &none           &none
                 &none           &none           &msc MOVE_LEFT  &mkp MB1        &msc MOVE_RIGHT &none                                                                                                           &none           &mmv MOVE_LEFT  &mkp MB2        &mmv MOVE_RIGHT &none           &none
                 &none           &none           &none           &msc MOVE_DOWN  &none           &none           &mkp MB1        &none           &none           &none           &none           &mkp MB2        &none           &none           &mmv MOVE_DOWN  &none           &none           &none
+                &none           &none           &none           &none           &none                           &none           &mo LAYER_Mouse2 &none          &none           &none           &none                           &none           &none           &none           &none           &none
+            >;
+        };
+        
+        layer_Mouse2 {
+            bindings = <
+                &none           &mmv MOVE_RIGHT &none           &none           &none                                                                                                                                           &none           &none           &none           &none           &none
+                &none           &none           &none           &none           &none           &none                                                                                                           &none           &none           &none           &none           &none           &none
+                &none           &none           &none           &mmv MOVE_UP    &none           &none                                                                                                           &none           &none           &msc MOVE_UP    &none           &none           &none
+                &none           &none           &mmv MOVE_LEFT  &mkp MB2        &mmv MOVE_RIGHT &none                                                                                                           &none           &msc MOVE_LEFT  &mkp MB1        &msc MOVE_RIGHT &none           &none
+                &none           &none           &none           &mmv MOVE_DOWN  &none           &none           &mkp MB1        &none           &none           &none           &none           &mkp MB2        &none           &none           &msc MOVE_DOWN  &none           &none           &none
                 &none           &none           &none           &none           &none                           &none           &none           &none           &none           &none           &none                           &none           &none           &none           &none           &none
             >;
         };
