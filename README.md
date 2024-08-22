@@ -2,6 +2,7 @@
 
 Build firmware:
 nix-build -o combined && cp combined/glove80.uf2 glove80.uf2 -f
+wsl -e sudo nix-build -o combined; wsl -e cp combined/glove80.uf2 glove80.uf2 -f; Copy-Item glove80.uf2 F:\
 Moergo github repo in root named src
 
 ![MoErgo Logo](moergo_logo.png)

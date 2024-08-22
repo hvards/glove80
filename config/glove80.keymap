@@ -13,12 +13,13 @@
 #define LAYER_Mouse2 5
 #define LAYER_Arrow 6
 #define LAYER_Func 7
-#define LAYER_Macro0 8
-#define LAYER_Macro1 9
-#define LAYER_Macro2 10
-#define LAYER_Macro3 11
-#define LAYER_Macro4 12
-#define LAYER_Macro5 13
+#define LAYER_Mirror 8
+#define LAYER_Macro0 9
+#define LAYER_Macro1 10
+#define LAYER_Macro2 11
+#define LAYER_Macro3 12
+#define LAYER_Macro4 13
+#define LAYER_Macro5 14
 
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 3500
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 1
@@ -193,10 +194,10 @@
             bindings = <
                 &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                                                                                                        &kp F6            &kp F7          &kp F8          &kp F9          &kp F10
                 &kp GRAVE       &oneshift       &twoshift       &threeshift     &fourshift      &fiveshift                                                                                                  &sixshift         &sevenshift       &eightshift     &nineshift      &zeroshift      &mo LAYER_Func
-                &kp TAB         &kp Q           &kp W           &kp F           &kp P           &kp B                                                                                                       &kp J             &kp L             &kp U           &kp Y           &kp SEMI        &kp HOME
+                &kp TAB         &kp MINUS       &kp W           &kp F           &kp P           &kp B                                                                                                       &kp J             &kp L             &kp U           &kp Y           &kp EQUAL       &kp HOME
                 &kp ESC         &kp A           &kp R           &kp S           &kp T           &kp G                                                                                                       &kp M             &kp N             &kp E           &kp I           &kp O           &kp SQT
-                &kp NUBS        &kp Z           &kp X           &kp C           &kp D           &kp V           &kp LSHIFT      &kp LALT        &mo LAYER_Macro0 &kp F24         &kp RET     &kp SPACE      &kp K             &kp H             &kp COMMA       &kp DOT         &kp FSLH        &kp END
-                &magic LAYER_Magic 0 &kp LGUI   &kp EQUAL       &kp MINUS       &mo LAYER_Lower                 &kp LCTRL       &sk RALT        &mo LAYER_Mouse &mo LAYER_Lower &kp LCTRL &mo LAYER_Special                   &kp LEFT          &kp DOWN        &kp UP          &kp RIGHT       &kp PG_DN
+                &kp Q           &kp Z           &kp X           &kp C           &kp D           &kp V           &kp LSHIFT      &kp LALT        &mo LAYER_Macro0 &kp F24         &kp RET     &kp SPACE      &kp K             &kp H             &kp COMMA       &kp DOT         &kp SEMI        &kp END
+                &magic LAYER_Magic 0 &kp LGUI   &kp NUBS        &kp FSLH        &mo LAYER_Lower                 &kp LCTRL       &sk RALT        &mo LAYER_Mouse &mo LAYER_Lower &kp LCTRL &mo LAYER_Special                   &kp LEFT          &kp DOWN        &kp UP          &kp RIGHT       &kp PG_DN
             >;
         };
 
@@ -239,8 +240,8 @@
                 &none           &none           &none           &none           &none           &none                                                                                                           &none           &none           &none           &none           &none           &none
                 &none           &none           &none           &msc MOVE_UP    &none           &none                                                                                                           &none           &none           &mmv MOVE_UP    &none           &none           &none
                 &none           &none           &msc MOVE_LEFT  &mkp MB1        &msc MOVE_RIGHT &none                                                                                                           &none           &mmv MOVE_LEFT  &mkp MB2        &mmv MOVE_RIGHT &none           &none
-                &none           &none           &none           &msc MOVE_DOWN  &none           &none           &mkp MB1        &none           &none           &none           &none           &mkp MB2        &none           &none           &mmv MOVE_DOWN  &none           &none           &none
-                &none           &none           &none           &none           &none                           &none           &mo LAYER_Mouse2 &none          &none           &none           &none                           &none           &none           &none           &none           &none
+                &none           &none           &none           &msc MOVE_DOWN  &none           &none           &mkp MB1        &none           &mo LAYER_Mirror &none          &none           &mkp MB2        &none           &none           &mmv MOVE_DOWN  &none           &none           &none
+                &none           &none           &mmv MOVE_X(-10000) &mmv MOVE_X(-20000) &none                   &none           &mo LAYER_Mouse2 &none          &none           &none           &none                           &none           &none           &none           &none           &none
             >;
         };
         
@@ -276,6 +277,18 @@
                 &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
             >;
         };
+
+        layer_Mirror {
+            bindings = <
+                &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                                                                                                        &kp F6            &kp F7          &kp F8          &kp F9          &kp F10
+                &kp GRAVE       &oneshift       &twoshift       &threeshift     &fourshift      &fiveshift                                                                                                  &sixshift         &sevenshift       &eightshift     &nineshift      &zeroshift      &mo LAYER_Func
+                &kp TAB         &kp SEMI        &kp Y           &kp U           &kp L           &kp J                                                                                                       &kp J             &kp L             &kp U           &kp Y           &kp SEMI        &kp HOME
+                &kp ESC         &kp O           &kp I           &kp E           &kp N           &kp M                                                                                                       &kp M             &kp N             &kp E           &kp I           &kp O           &kp SQT
+                &kp NUBS        &kp FSLH        &kp DOT         &kp COMMA       &kp H           &kp K           &kp LSHIFT      &kp LALT        &mo LAYER_Macro0 &kp F24         &kp RET     &kp SPACE      &kp K             &kp H             &kp COMMA       &kp DOT         &kp FSLH        &kp END
+                &magic LAYER_Magic 0 &kp LEFT   &kp DOWN        &kp UP          &kp RIGHT                       &kp LCTRL       &sk RALT        &mo LAYER_Mouse &mo LAYER_Lower &kp LCTRL &mo LAYER_Special                   &kp LEFT          &kp DOWN        &kp UP          &kp RIGHT       &kp PG_DN
+            >;
+        };
+
         layer_Macro0 {
             bindings = <
                 &trans          &trans          &trans          &trans          &trans                                                                                                                          &trans          &trans          &trans          &trans          &none
