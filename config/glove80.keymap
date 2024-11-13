@@ -11,15 +11,16 @@
 #define LAYER_Special 3
 #define LAYER_Mouse 4
 #define LAYER_Mouse2 5
-#define LAYER_Arrow 6
-#define LAYER_Func 7
-#define LAYER_Mirror 8
-#define LAYER_Macro0 9
-#define LAYER_Macro1 10
-#define LAYER_Macro2 11
-#define LAYER_Macro3 12
-#define LAYER_Macro4 13
-#define LAYER_Macro5 14
+#define LAYER_FuncKeys 6
+#define LAYER_Numbers 7
+#define LAYER_Func 8
+#define LAYER_Mirror 9
+#define LAYER_Macro0 10
+#define LAYER_Macro1 11
+#define LAYER_Macro2 12
+#define LAYER_Macro3 13
+#define LAYER_Macro4 14
+#define LAYER_Macro5 15
 
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 3500
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 1
@@ -106,12 +107,6 @@
             bindings = <&kp LS(N0)>, <&kp LS(N8)>;
             mods = <MOD_LSFT>;
         };
-        nineshift: nineshift {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp BACKSPACE>, <&kp LS(N9)>;
-            mods = <MOD_LSFT>;
-        };
         zeroshift: zeroshift {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -176,6 +171,42 @@
                 , <&macro_release &kp LALT>
 			;
 		};
+        minimize: minimize{
+            label = "MINIMIZE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp SPACE>
+                , <&macro_release &kp LALT>
+                , <&macro_tap &kp N>
+            ;
+        };
+        maximize: maximize{
+            label = "MAXIMIZE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp SPACE>
+                , <&macro_release &kp LALT>
+                , <&macro_tap &kp X>
+            ;
+        };
+        restore: restore{
+            label = "RESTORE";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            bindings
+                = <&macro_press &kp LALT>
+                , <&macro_tap &kp SPACE>
+                , <&macro_release &kp LALT>
+                , <&macro_tap &kp R>
+            ;
+        };
     };
 
     magic: magic_hold_tap {
@@ -193,11 +224,11 @@
         layer_Base {
             bindings = <
                 &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                                                                                                        &kp F6            &kp F7          &kp F8          &kp F9          &kp F10
-                &kp GRAVE       &oneshift       &twoshift       &threeshift     &fourshift      &fiveshift                                                                                                  &sixshift         &sevenshift       &eightshift     &nineshift      &zeroshift      &mo LAYER_Func
-                &kp TAB         &kp MINUS       &kp W           &kp F           &kp P           &kp B                                                                                                       &kp J             &kp L             &kp U           &kp Y           &kp EQUAL       &kp HOME
+                &kp GRAVE       &oneshift       &twoshift       &threeshift     &fourshift      &fiveshift                                                                                                  &sixshift         &sevenshift       &eightshift     &kp BACKSPACE   &zeroshift      &mo LAYER_Func
+                &kp TAB         &kp MINUS       &kp W           &kp F           &kp P           &kp B                                                                                                       &kp J             &kp L             &kp U           &kp Y           &kp SEMI       &kp HOME
                 &kp ESC         &kp A           &kp R           &kp S           &kp T           &kp G                                                                                                       &kp M             &kp N             &kp E           &kp I           &kp O           &kp SQT
-                &kp Q           &kp Z           &kp X           &kp C           &kp D           &kp V           &kp LSHIFT      &kp LALT        &mo LAYER_Macro0 &kp F24         &kp RET     &kp SPACE      &kp K             &kp H             &kp COMMA       &kp DOT         &kp SEMI        &kp END
-                &magic LAYER_Magic 0 &kp LGUI   &kp NUBS        &kp FSLH        &mo LAYER_Lower                 &kp LCTRL       &sk RALT        &mo LAYER_Mouse &mo LAYER_Lower &kp LCTRL &mo LAYER_Special                   &kp LEFT          &kp DOWN        &kp UP          &kp RIGHT       &kp PG_DN
+                &kp Q           &kp Z           &kp X           &kp C           &kp D           &kp V           &kp SPACE       &kp LALT        &mo LAYER_Macro0 &kp F24         &kp RET      &kp LSHIFT    &kp K             &kp H             &kp COMMA       &kp DOT         &kp FSLH        &kp END
+                &magic LAYER_Magic 0 &kp LGUI   &kp EQUAL       &kp NUBS        &mo LAYER_Lower                 &kp LCTRL       &sk RALT        &mo LAYER_Mouse &mo LAYER_Lower &kp LCTRL &mo LAYER_Special                   &kp LEFT          &kp DOWN        &kp UP          &kp RIGHT       &kp PG_DN
             >;
         };
 
@@ -229,7 +260,7 @@
                 &trans          &all_mod N1     &all_mod N2     &all_mod N3     &all_mod N4     &all_mod N5                                                                                                     &all_mod N6     &all_mod N7     &all_mod N8     &all_mod N9     &all_mod 0      &trans
                 &trans          &all_mod Q      &all_mod W      &all_mod F      &all_mod P      &all_mod B                                                                                                      &all_mod J      &all_mod L      &all_mod U      &all_mod Y      &trans          &trans
                 &trans          &kp RA(W)       &all_mod R      &all_mod S      &kp LC(F23)     &all_mod G                                                                                                      &all_mod M      &all_mod N      &kp RA(Z)       &all_mod I      &kp RA(L)       &trans
-                &trans          &all_mod Z      &all_mod X      &all_mod C      &all_mod D      &all_mod V      &kp LSHIFT      &trans          &trans          &trans          &trans          &trans          &all_mod K      &all_mod H      &all_mod COMMA  &all_mod DOT    &trans          &trans
+                &trans          &all_mod Z      &all_mod X      &all_mod C      &all_mod D      &all_mod V      &mo LAYER_FuncKeys &mo LAYER_Numbers &trans     &trans          &trans          &trans          &all_mod K      &all_mod H      &all_mod COMMA  &all_mod DOT    &trans          &trans
                 &trans          &trans          &trans          &trans          &trans                          &mo LAYER_Mouse &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans
             >;
         };
@@ -256,13 +287,24 @@
             >;
         };
         
-        layer_Arrow {
+        layer_FuncKeys {
             bindings = <
                 &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
                 &trans          &trans          &trans          &trans          &trans          &trans                                                                                                          &trans          &trans          &trans          &trans          &trans          &none
                 &trans          &trans          &trans          &trans          &trans          &trans                                                                                                          &trans          &trans          &trans          &trans          &trans          &none
-                &trans          &trans          &trans          &trans          &trans          &trans                                                                                                          &trans          &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &none
-                &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &none
+                &trans          &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                                                                          &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &kp LSHIFT
+                &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &kp LCTRL       &kp LSHIFT      &trans          &kp F11         &kp F12         &trans          &trans          &none
+                &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
+            >;
+        };
+
+        layer_Numbers {
+            bindings = <
+                &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
+                &trans          &trans          &trans          &trans          &trans          &trans                                                                                                          &trans          &trans          &trans          &trans          &trans          &none
+                &trans          &trans          &trans          &trans          &trans          &trans                                                                                                          &trans          &trans          &trans          &trans          &trans          &none
+                &trans          &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                                                                                          &kp N6          &kp N7          &kp N8          &kp N9          &kp N0         &kp LSHIFT
+                &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &kp LCTRL       &kp LSHIFT      &trans          &kp F11         &kp F12         &trans          &trans          &none
                 &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
             >;
         };
@@ -281,7 +323,7 @@
         layer_Mirror {
             bindings = <
                 &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                                                                                                        &kp F6            &kp F7          &kp F8          &kp F9          &kp F10
-                &kp GRAVE       &oneshift       &twoshift       &threeshift     &fourshift      &fiveshift                                                                                                  &sixshift         &sevenshift       &eightshift     &nineshift      &zeroshift      &mo LAYER_Func
+                &kp GRAVE       &oneshift       &twoshift       &threeshift     &fourshift      &fiveshift                                                                                                  &sixshift         &sevenshift       &eightshift     &kp BACKSPACE   &zeroshift      &mo LAYER_Func
                 &kp TAB         &kp SEMI        &kp Y           &kp U           &kp L           &kp J                                                                                                       &kp J             &kp L             &kp U           &kp Y           &kp SEMI        &kp HOME
                 &kp ESC         &kp O           &kp I           &kp E           &kp N           &kp M                                                                                                       &kp M             &kp N             &kp E           &kp I           &kp O           &kp SQT
                 &kp NUBS        &kp FSLH        &kp DOT         &kp COMMA       &kp H           &kp K           &kp LSHIFT      &kp LALT        &mo LAYER_Macro0 &kp F24         &kp RET     &kp SPACE      &kp K             &kp H             &kp COMMA       &kp DOT         &kp FSLH        &kp END
@@ -294,9 +336,9 @@
                 &trans          &trans          &trans          &trans          &trans                                                                                                                          &trans          &trans          &trans          &trans          &none
                 &trans          &kp LS(RS(F13)) &kp LS(RS(F14)) &kp LS(RS(F15)) &kp LS(RS(F16)) &kp LS(RS(F17))                                                                                                 &kp LS(RS(F18)) &kp LS(RS(F19)) &kp LS(RS(F20)) &kp LS(RS(F21)) &kp LS(RS(F22)) &none
                 &trans          &kp LS(RS(F23)) &kp LS(RS(F24)) &kp LS(LC(F13)) &kp LS(LC(F14)) &kp LS(LC(F15))                                                                                                 &kp LS(LC(F16)) &kp LS(LC(F17)) &kp LS(LC(F18)) &kp LS(LC(F19)) &kp LS(LC(F20)) &none
-                &trans          &kp LS(LC(F21)) &kp LS(LC(F22)) &kp LS(LC(F23)) &kp LS(LC(F24)) &kp LS(RC(F13))                                                                                                 &kp LS(RC(F14)) &kp LS(RC(F15)) &kp LS(RC(F16)) &kp LS(RC(F17)) &kp LS(RC(F18)) &none
-                &trans          &kp LS(RC(F19)) &kp LS(RC(F20)) &kp LS(RC(F21)) &kp LS(RC(F22)) &kp LS(RC(F23)) &trans          &trans          &trans       &mo LAYER_Macro4 &mo LAYER_Macro3 &mo LAYER_Macro1 &kp LS(RC(F24)) &kp LS(LA(F13)) &kp LS(LA(F14)) &kp LS(LA(F15)) &kp LS(LA(F16)) &none
-                &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &mo LAYER_Macro5 &none
+                &trans          &kp LS(LC(F21)) &restore        &kp LS(LC(F23)) &kp LS(LC(F24)) &kp LS(RC(F13))                                                                                                 &kp LS(RC(F14)) &minimize       &kp LS(RC(F16)) &kp LS(RC(F17)) &kp LS(RC(F18)) &none
+                &trans          &kp LS(RC(F19)) &maximize       &kp LS(RC(F21)) &kp LS(RC(F22)) &kp LS(RC(F23)) &trans          &trans          &trans       &mo LAYER_Macro4 &mo LAYER_Macro3 &mo LAYER_Macro1 &kp LS(RC(F24)) &kp LS(LA(F13)) &kp LS(LA(F14)) &kp LS(LA(F15)) &kp LS(LA(F16)) &none
+                &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &kp LS(RET)                     &trans          &trans          &trans          &mo LAYER_Macro5 &none
             >;
         };
         layer_Macro1 {
@@ -349,105 +391,5 @@
                 &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
             >;
         };
-        // layer_Macro6 {
-        //     bindings = <
-        //         &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
-        //         &trans          &kp LS(LC(LA(F19))) &kp LS(LC(LA(F20))) &kp LS(LC(LA(F21))) &kp LS(LC(LA(F22))) &kp LS(LC(LA(F23)))                                                                             &kp LS(LC(LA(F24))) &kp LS(LC(RA(F13))) &kp LS(LC(RA(F14))) &kp LS(LC(RA(F15))) &kp LS(LC(RA(F16))) &none
-        //         &trans          &kp LS(LC(RA(F17))) &kp LS(LC(RA(F18))) &kp LS(LC(RA(F19))) &kp LS(LC(RA(F20))) &kp LS(LC(RA(F21)))                                                                             &kp LS(LC(RA(F22))) &kp LS(LC(RA(F23))) &kp LS(LC(RA(F24))) &kp LS(RC(LA(F13))) &kp LS(RC(LA(F14))) &none
-        //         &trans          &kp LS(RC(LA(F15))) &kp LS(RC(LA(F16))) &kp LS(RC(LA(F17))) &kp LS(RC(LA(F18))) &kp LS(RC(LA(F19)))                                                                             &kp LS(RC(LA(F20))) &kp LS(RC(LA(F21))) &kp LS(RC(LA(F22))) &kp LS(RC(LA(F23))) &kp LS(RC(LA(F24))) &none
-        //         &trans          &kp LS(RC(RA(F13))) &kp LS(RC(RA(F14))) &kp LS(RC(RA(F15))) &kp LS(RC(RA(F16))) &kp LS(RC(RA(F17))) &trans &trans &trans        &trans          &trans          &trans          &kp LS(RC(RA(F18))) &kp LS(RC(RA(F19))) &kp LS(RC(RA(F20))) &kp LS(RC(RA(F21))) &kp LS(RC(RA(F22))) &none
-        //         &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
-        //     >;
-        // };
-        // layer_Macro7 {
-        //     bindings = <
-        //         &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
-        //         &trans          &kp LS(RC(RA(F24))) &kp LS(LA(RA(F13))) &kp LS(LA(RA(F14))) &kp LS(LA(RA(F15))) &kp LS(LA(RA(F16)))                                                                             &kp LS(LA(RA(F17))) &kp LS(LA(RA(F18))) &kp LS(LA(RA(F19))) &kp LS(LA(RA(F20))) &kp LS(LA(RA(F21))) &none
-        //         &trans          &kp LS(LA(RA(F22))) &kp LS(LA(RA(F23))) &kp LS(LA(RA(F24))) &kp RS(LC(RC(F13))) &kp RS(LC(RC(F14)))                                                                             &kp RS(LC(RC(F15))) &kp RS(LC(RC(F16))) &kp RS(LC(RC(F17))) &kp RS(LC(RC(F18))) &kp RS(LC(RC(F19))) &none
-        //         &trans          &kp RS(LC(RC(F20))) &kp RS(LC(RC(F21))) &kp RS(LC(RC(F22))) &kp RS(LC(RC(F23))) &kp RS(LC(RC(F24)))                                                                             &kp RS(LC(LA(F13))) &kp RS(LC(LA(F14))) &kp RS(LC(LA(F15))) &kp RS(LC(LA(F16))) &kp RS(LC(LA(F17))) &none
-        //         &trans          &kp RS(LC(LA(F18))) &kp RS(LC(LA(F19))) &kp RS(LC(LA(F20))) &kp RS(LC(LA(F21))) &kp RS(LC(LA(F22))) &trans &trans &trans        &trans          &trans          &trans          &kp RS(LC(LA(F23))) &kp RS(LC(LA(F24))) &kp RS(LC(RA(F13))) &kp RS(LC(RA(F14))) &kp RS(LC(RA(F15))) &none
-        //         &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
-        //     >;
-        // };
-        // layer_Macro8 {
-        //     bindings = <
-        //         &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
-        //         &trans          &kp RS(LC(RA(F17))) &kp RS(LC(RA(F18))) &kp RS(LC(RA(F19))) &kp RS(LC(RA(F20))) &kp RS(LC(RA(F21)))                                                                             &kp RS(LC(RA(F22))) &kp RS(LC(RA(F23))) &kp RS(LC(RA(F24))) &kp RS(RC(LA(F13))) &kp RS(RC(LA(F14))) &none
-        //         &trans          &kp RS(RC(LA(F15))) &kp RS(RC(LA(F16))) &kp RS(RC(LA(F17))) &kp RS(RC(LA(F18))) &kp RS(RC(LA(F19)))                                                                             &kp RS(RC(LA(F20))) &kp RS(RC(LA(F21))) &kp RS(RC(LA(F22))) &kp RS(RC(LA(F23))) &kp RS(RC(LA(F24))) &none
-        //         &trans          &kp RS(RC(RA(F13))) &kp RS(RC(RA(F14))) &kp RS(RC(RA(F15))) &kp RS(RC(RA(F16))) &kp RS(RC(RA(F17)))                                                                             &kp RS(RC(RA(F18))) &kp RS(RC(RA(F19))) &kp RS(RC(RA(F20))) &kp RS(RC(RA(F21))) &kp RS(RC(RA(F22))) &none
-        //         &trans          &kp RS(RC(RA(F23))) &kp RS(RC(RA(F24))) &kp RS(LA(RA(F13))) &kp RS(LA(RA(F14))) &kp RS(LA(RA(F15))) &trans &trans &trans        &trans          &trans          &trans          &kp RS(LA(RA(F16))) &kp RS(LA(RA(F17))) &kp RS(LA(RA(F18))) &kp RS(LA(RA(F19))) &kp RS(LA(RA(F20))) &none
-        //         &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
-        //     >;
-        // };
-        // layer_Macro9 {
-        //     bindings = <
-        //         &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
-        //         &trans          &kp RS(LA(RA(F22))) &kp RS(LA(RA(F23))) &kp RS(LA(RA(F24))) &kp LC(RC(LA(F13))) &kp LC(RC(LA(F14)))                                                                             &kp LC(RC(LA(F15))) &kp LC(RC(LA(F16))) &kp LC(RC(LA(F17))) &kp LC(RC(LA(F18))) &kp LC(RC(LA(F19))) &none
-        //         &trans          &kp LC(RC(LA(F20))) &kp LC(RC(LA(F21))) &kp LC(RC(LA(F22))) &kp LC(RC(LA(F23))) &kp LC(RC(LA(F24)))                                                                             &kp LC(RC(RA(F13))) &kp LC(RC(RA(F14))) &kp LC(RC(RA(F15))) &kp LC(RC(RA(F16))) &kp LC(RC(RA(F17))) &none
-        //         &trans          &kp LC(RC(RA(F18))) &kp LC(RC(RA(F19))) &kp LC(RC(RA(F20))) &kp LC(RC(RA(F21))) &kp LC(RC(RA(F22)))                                                                             &kp LC(RC(RA(F23))) &kp LC(RC(RA(F24))) &kp LC(LA(RA(F13))) &kp LC(LA(RA(F14))) &kp LC(LA(RA(F15))) &none
-        //         &trans          &kp LC(LA(RA(F16))) &kp LC(LA(RA(F17))) &kp LC(LA(RA(F18))) &kp LC(LA(RA(F19))) &kp LC(LA(RA(F20))) &trans &trans &trans        &trans          &trans          &trans          &kp LC(LA(RA(F21))) &kp LC(LA(RA(F22))) &kp LC(LA(RA(F23))) &kp LC(LA(RA(F24))) &kp RC(LA(RA(F13))) &none
-        //         &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
-        //     >;
-        // };
-        // layer_Macro10 {
-        //     bindings = <
-        //         &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
-        //         &trans          &kp RC(LA(RA(F15))) &kp RC(LA(RA(F16))) &kp RC(LA(RA(F17))) &kp RC(LA(RA(F18))) &kp RC(LA(RA(F19)))                                                                             &kp RC(LA(RA(F20))) &kp RC(LA(RA(F21))) &kp RC(LA(RA(F22))) &kp RC(LA(RA(F23))) &kp RC(LA(RA(F24))) &none
-        //         &trans          &kp LS(RS(LC(RC(F13)))) &kp LS(RS(LC(RC(F14)))) &kp LS(RS(LC(RC(F15)))) &kp LS(RS(LC(RC(F16)))) &kp LS(RS(LC(RC(F17))))                                                         &kp LS(RS(LC(RC(F18)))) &kp LS(RS(LC(RC(F19)))) &kp LS(RS(LC(RC(F20)))) &kp LS(RS(LC(RC(F21)))) &kp LS(RS(LC(RC(F22)))) &none
-        //         &trans          &kp LS(RS(LC(RC(F23)))) &kp LS(RS(LC(RC(F24)))) &kp LS(RS(LC(LA(F13)))) &kp LS(RS(LC(LA(F14)))) &kp LS(RS(LC(LA(F15))))                                                         &kp LS(RS(LC(LA(F16)))) &kp LS(RS(LC(LA(F17)))) &kp LS(RS(LC(LA(F18)))) &kp LS(RS(LC(LA(F19)))) &kp LS(RS(LC(LA(F20)))) &none
-        //         &trans          &kp LS(RS(LC(LA(F21)))) &kp LS(RS(LC(LA(F22)))) &kp LS(RS(LC(LA(F23)))) &kp LS(RS(LC(LA(F24)))) &kp LS(RS(LC(RA(F13)))) &trans &trans &trans &trans &trans      &trans          &kp LS(RS(LC(RA(F14)))) &kp LS(RS(LC(RA(F15)))) &kp LS(RS(LC(RA(F16)))) &kp LS(RS(LC(RA(F17)))) &kp LS(RS(LC(RA(F18)))) &none
-        //         &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
-        //     >;
-        // };
-        // layer_Macro11 {
-        //     bindings = <
-        //         &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
-        //         &trans          &kp LS(RS(LC(RA(F20)))) &kp LS(RS(LC(RA(F21)))) &kp LS(RS(LC(RA(F22)))) &kp LS(RS(LC(RA(F23)))) &kp LS(RS(LC(RA(F24))))                                                         &kp LS(RS(RC(LA(F13)))) &kp LS(RS(RC(LA(F14)))) &kp LS(RS(RC(LA(F15)))) &kp LS(RS(RC(LA(F16)))) &kp LS(RS(RC(LA(F17)))) &none
-        //         &trans          &kp LS(RS(RC(LA(F18)))) &kp LS(RS(RC(LA(F19)))) &kp LS(RS(RC(LA(F20)))) &kp LS(RS(RC(LA(F21)))) &kp LS(RS(RC(LA(F22))))                                                         &kp LS(RS(RC(LA(F23)))) &kp LS(RS(RC(LA(F24)))) &kp LS(RS(RC(RA(F13)))) &kp LS(RS(RC(RA(F14)))) &kp LS(RS(RC(RA(F15)))) &none
-        //         &trans          &kp LS(RS(RC(RA(F16)))) &kp LS(RS(RC(RA(F17)))) &kp LS(RS(RC(RA(F18)))) &kp LS(RS(RC(RA(F19)))) &kp LS(RS(RC(RA(F20))))                                                         &kp LS(RS(RC(RA(F21)))) &kp LS(RS(RC(RA(F22)))) &kp LS(RS(RC(RA(F23)))) &kp LS(RS(RC(RA(F24)))) &kp LS(RS(LA(RA(F13)))) &none
-        //         &trans          &kp LS(RS(LA(RA(F14)))) &kp LS(RS(LA(RA(F15)))) &kp LS(RS(LA(RA(F16)))) &kp LS(RS(LA(RA(F17)))) &kp LS(RS(LA(RA(F18)))) &trans &trans &trans &trans &trans      &trans          &kp LS(RS(LA(RA(F19)))) &kp LS(RS(LA(RA(F20)))) &kp LS(RS(LA(RA(F21)))) &kp LS(RS(LA(RA(F22)))) &kp LS(RS(LA(RA(F23)))) &none
-        //         &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
-        //     >;
-        // };
-        // layer_Macro12 {
-        //     bindings = <
-        //         &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
-        //         &trans          &kp LS(LC(RC(LA(F13)))) &kp LS(LC(RC(LA(F14)))) &kp LS(LC(RC(LA(F15)))) &kp LS(LC(RC(LA(F16)))) &kp LS(LC(RC(LA(F17))))                                                         &kp LS(LC(RC(LA(F18)))) &kp LS(LC(RC(LA(F19)))) &kp LS(LC(RC(LA(F20)))) &kp LS(LC(RC(LA(F21)))) &kp LS(LC(RC(LA(F22)))) &none
-        //         &trans          &kp LS(LC(RC(LA(F23)))) &kp LS(LC(RC(LA(F24)))) &kp LS(LC(RC(RA(F13)))) &kp LS(LC(RC(RA(F14)))) &kp LS(LC(RC(RA(F15))))                                                         &kp LS(LC(RC(RA(F16)))) &kp LS(LC(RC(RA(F17)))) &kp LS(LC(RC(RA(F18)))) &kp LS(LC(RC(RA(F19)))) &kp LS(LC(RC(RA(F20)))) &none
-        //         &trans          &kp LS(LC(RC(RA(F21)))) &kp LS(LC(RC(RA(F22)))) &kp LS(LC(RC(RA(F23)))) &kp LS(LC(RC(RA(F24)))) &kp LS(LC(LA(RA(F13))))                                                         &kp LS(LC(LA(RA(F14)))) &kp LS(LC(LA(RA(F15)))) &kp LS(LC(LA(RA(F16)))) &kp LS(LC(LA(RA(F17)))) &kp LS(LC(LA(RA(F18)))) &none
-        //         &trans          &kp LS(LC(LA(RA(F19)))) &kp LS(LC(LA(RA(F20)))) &kp LS(LC(LA(RA(F21)))) &kp LS(LC(LA(RA(F22)))) &kp LS(LC(LA(RA(F23)))) &trans &trans &trans &trans &trans      &trans          &kp LS(LC(LA(RA(F24)))) &kp LS(RC(LA(RA(F13)))) &kp LS(RC(LA(RA(F14)))) &kp LS(RC(LA(RA(F15)))) &kp LS(RC(LA(RA(F16)))) &none
-        //         &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
-        //     >;
-        // };
-        // layer_Macro13 {
-        //     bindings = <
-        //         &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
-        //         &trans          &kp LS(RC(LA(RA(F18)))) &kp LS(RC(LA(RA(F19)))) &kp LS(RC(LA(RA(F20)))) &kp LS(RC(LA(RA(F21)))) &kp LS(RC(LA(RA(F22))))                                                         &kp LS(RC(LA(RA(F23)))) &kp LS(RC(LA(RA(F24)))) &kp RS(LC(RC(LA(F13)))) &kp RS(LC(RC(LA(F14)))) &kp RS(LC(RC(LA(F15)))) &none
-        //         &trans          &kp RS(LC(RC(LA(F16)))) &kp RS(LC(RC(LA(F17)))) &kp RS(LC(RC(LA(F18)))) &kp RS(LC(RC(LA(F19)))) &kp RS(LC(RC(LA(F20))))                                                         &kp RS(LC(RC(LA(F21)))) &kp RS(LC(RC(LA(F22)))) &kp RS(LC(RC(LA(F23)))) &kp RS(LC(RC(LA(F24)))) &kp RS(LC(RC(RA(F13)))) &none
-        //         &trans          &kp RS(LC(RC(RA(F14)))) &kp RS(LC(RC(RA(F15)))) &kp RS(LC(RC(RA(F16)))) &kp RS(LC(RC(RA(F17)))) &kp RS(LC(RC(RA(F18))))                                                         &kp RS(LC(RC(RA(F19)))) &kp RS(LC(RC(RA(F20)))) &kp RS(LC(RC(RA(F21)))) &kp RS(LC(RC(RA(F22)))) &kp RS(LC(RC(RA(F23)))) &none
-        //         &trans          &kp RS(LC(RC(RA(F24)))) &kp RS(LC(LA(RA(F13)))) &kp RS(LC(LA(RA(F14)))) &kp RS(LC(LA(RA(F15)))) &kp RS(LC(LA(RA(F16)))) &trans &trans &trans &trans &trans      &trans          &kp RS(LC(LA(RA(F17)))) &kp RS(LC(LA(RA(F18)))) &kp RS(LC(LA(RA(F19)))) &kp RS(LC(LA(RA(F20)))) &kp RS(LC(LA(RA(F21)))) &none
-        //         &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
-        //     >;
-        // };
-        // layer_Macro14 {
-        //     bindings = <
-        //         &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
-        //         &trans          &kp RS(LC(LA(RA(F23)))) &kp RS(LC(LA(RA(F24)))) &kp RS(RC(LA(RA(F13)))) &kp RS(RC(LA(RA(F14)))) &kp RS(RC(LA(RA(F15))))                                                         &kp RS(RC(LA(RA(F16)))) &kp RS(RC(LA(RA(F17)))) &kp RS(RC(LA(RA(F18)))) &kp RS(RC(LA(RA(F19)))) &kp RS(RC(LA(RA(F20)))) &none
-        //         &trans          &kp RS(RC(LA(RA(F21)))) &kp RS(RC(LA(RA(F22)))) &kp RS(RC(LA(RA(F23)))) &kp RS(RC(LA(RA(F24)))) &kp LC(RC(LA(RA(F13))))                                                         &kp LC(RC(LA(RA(F14)))) &kp LC(RC(LA(RA(F15)))) &kp LC(RC(LA(RA(F16)))) &kp LC(RC(LA(RA(F17)))) &kp LC(RC(LA(RA(F18)))) &none
-        //         &trans          &kp LC(RC(LA(RA(F19)))) &kp LC(RC(LA(RA(F20)))) &kp LC(RC(LA(RA(F21)))) &kp LC(RC(LA(RA(F22)))) &kp LC(RC(LA(RA(F23))))                                                         &kp LC(RC(LA(RA(F24)))) &kp LS(RS(LC(RC(LA(F13))))) &kp LS(RS(LC(RC(LA(F14))))) &kp LS(RS(LC(RC(LA(F15))))) &kp LS(RS(LC(RC(LA(F16))))) &none
-        //         &trans          &kp LS(RS(LC(RC(LA(F17))))) &kp LS(RS(LC(RC(LA(F18))))) &kp LS(RS(LC(RC(LA(F19))))) &kp LS(RS(LC(RC(LA(F20))))) &kp LS(RS(LC(RC(LA(F21))))) &trans &trans &trans &trans &trans &trans &kp LS(RS(LC(RC(LA(F22))))) &kp LS(RS(LC(RC(LA(F23))))) &kp LS(RS(LC(RC(LA(F24))))) &kp LS(RS(LC(RC(RA(F13))))) &kp LS(RS(LC(RC(RA(F14))))) &none
-        //         &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
-        //     >;
-        // };
-        // layer_Macro15 {
-        //     bindings = <
-        //         &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
-        //         &trans          &kp LS(RS(LC(RC(RA(F16))))) &kp LS(RS(LC(RC(RA(F17))))) &kp LS(RS(LC(RC(RA(F18))))) &kp LS(RS(LC(RC(RA(F19))))) &kp LS(RS(LC(RC(RA(F20)))))                                     &kp LS(RS(LC(RC(RA(F21))))) &kp LS(RS(LC(RC(RA(F22))))) &kp LS(RS(LC(RC(RA(F23))))) &kp LS(RS(LC(RC(RA(F24))))) &kp LS(RS(LC(LA(RA(F13))))) &none
-        //         &trans          &kp LS(RS(LC(LA(RA(F14))))) &kp LS(RS(LC(LA(RA(F15))))) &kp LS(RS(LC(LA(RA(F16))))) &kp LS(RS(LC(LA(RA(F17))))) &kp LS(RS(LC(LA(RA(F18)))))                                     &kp LS(RS(LC(LA(RA(F19))))) &kp LS(RS(LC(LA(RA(F20))))) &kp LS(RS(LC(LA(RA(F21))))) &kp LS(RS(LC(LA(RA(F22))))) &kp LS(RS(LC(LA(RA(F23))))) &none
-        //         &trans          &kp LS(RS(LC(LA(RA(F24))))) &kp LS(RS(RC(LA(RA(F13))))) &kp LS(RS(RC(LA(RA(F14))))) &kp LS(RS(RC(LA(RA(F15))))) &kp LS(RS(RC(LA(RA(F16)))))                                     &kp LS(RS(RC(LA(RA(F17))))) &kp LS(RS(RC(LA(RA(F18))))) &kp LS(RS(RC(LA(RA(F19))))) &kp LS(RS(RC(LA(RA(F20))))) &kp LS(RS(RC(LA(RA(F21))))) &none
-        //         &trans          &kp LS(RS(RC(LA(RA(F22))))) &kp LS(RS(RC(LA(RA(F23))))) &kp LS(RS(RC(LA(RA(F24))))) &kp LS(LC(RC(LA(RA(F13))))) &kp LS(LC(RC(LA(RA(F14))))) &trans &trans &trans &trans &trans &trans &kp LS(LC(RC(LA(RA(F15))))) &kp LS(LC(RC(LA(RA(F16))))) &kp LS(LC(RC(LA(RA(F17))))) &kp LS(LC(RC(LA(RA(F18))))) &kp LS(LC(RC(LA(RA(F19))))) &none
-        //         &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
-        //     >;
-        // };
     };
 };
