@@ -1,4 +1,3 @@
 *~
-config/combined
-config/glove80.uf2
-.vscode/
+*.uf2
+config/combined                                                                                              │    │
