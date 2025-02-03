@@ -11,16 +11,17 @@
 #define LAYER_Special 3
 #define LAYER_Mouse 4
 #define LAYER_Mouse2 5
-#define LAYER_FuncKeys 6
-#define LAYER_Numbers 7
-#define LAYER_Func 8
-#define LAYER_Mirror 9
-#define LAYER_Macro0 10
-#define LAYER_Macro1 11
-#define LAYER_Macro2 12
-#define LAYER_Macro3 13
-#define LAYER_Macro4 14
-#define LAYER_Macro5 15
+#define LAYER_Mouse3 6
+#define LAYER_FuncKeys 7
+#define LAYER_Numbers 8
+#define LAYER_Func 9
+#define LAYER_Mirror 10
+#define LAYER_Macro0 11
+#define LAYER_Macro1 12
+#define LAYER_Macro2 13
+#define LAYER_Macro3 14
+#define LAYER_Macro4 15
+#define LAYER_Macro5 16
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 2500  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 30    // default: 10
@@ -256,22 +257,33 @@
         layer_Mouse {
             bindings = <
                 &none           &mmv MOVE_RIGHT &none           &none           &none                                                                                                                                           &none           &none           &none           &none           &none
-                &none           &none           &none           &none           &none           &none                                                                                                           &none           &none           &none           &none           &none           &none
-                &none           &none           &none           &msc SCRL_UP    &none           &none                                                                                                           &kp Z           &none           &mmv MOVE_UP    &none           &none           &none
-                &none           &none           &msc SCRL_LEFT  &mkp MB1        &msc SCRL_RIGHT &none                                                                                                           &none           &mmv MOVE_LEFT  &mkp MB2        &mmv MOVE_RIGHT &none           &none
-                &none           &none           &none           &msc SCRL_DOWN  &none           &none           &mkp MB1        &none           &mo LAYER_Mirror &none          &none           &mkp MB2        &none           &none           &mmv MOVE_DOWN  &none           &none           &none
-                &none           &none           &mmv MOVE_X(-10000) &mmv MOVE_X(-20000) &none                   &none           &mo LAYER_Mouse2 &none          &none           &none           &none                           &none           &none           &none           &none           &none
+                &none           &none           &none           &none           &none           &none                                                                                                           &none           &none           &mmv MOVE_Y(-20000) &none       &none           &none
+                &none           &none           &none           &msc SCRL_DOWN  &none           &none                                                                                                           &kp Z           &none           &mmv MOVE_UP    &none           &none           &none
+                &none           &none           &msc SCRL_LEFT  &mkp MB1        &msc SCRL_RIGHT &none                                                                                                           &mmv MOVE_X(-20000) &mmv MOVE_LEFT &mkp MB2     &mmv MOVE_RIGHT &mmv MOVE_X(20000) &none
+                &none           &none           &none           &msc SCRL_UP    &none           &none           &mkp MB1        &none           &mo LAYER_Mirror &none          &none           &mkp MB2        &none           &none           &mmv MOVE_DOWN  &none           &none           &none
+                &none           &none           &mmv MOVE_X(-10000) &mmv MOVE_X(-20000) &none                   &none           &mo LAYER_Mouse2 &none          &none           &none           &mo LAYER_Mouse3                &none           &mmv MOVE_Y(20000) &none        &none           &none
             >;
         };
         
         layer_Mouse2 {
             bindings = <
                 &none           &mmv MOVE_RIGHT &none           &none           &none                                                                                                                                           &none           &none           &none           &none           &none
-                &none           &none           &none           &none           &none           &none                                                                                                           &none           &none           &none           &none           &none           &none
-                &none           &none           &none           &mmv MOVE_UP    &none           &none                                                                                                           &none           &none           &msc SCRL_UP    &none           &none           &none
-                &none           &none           &mmv MOVE_LEFT  &mkp MB2        &mmv MOVE_RIGHT &none                                                                                                           &none           &msc SCRL_LEFT  &mkp MB1        &msc SCRL_RIGHT &none           &none
-                &none           &none           &none           &mmv MOVE_DOWN  &none           &none           &mkp MB1        &none           &none           &none           &none           &mkp MB2        &none           &none           &msc SCRL_DOWN  &none           &none           &none
-                &none           &none           &none           &none           &none                           &none           &none           &none           &none           &none           &none                           &none           &none           &none           &none           &none
+                &none           &none           &none           &mmv MOVE_Y(-20000) &none       &none                                                                                                           &none           &none           &msc MOVE_Y(-200) &none         &none           &none
+                &none           &none           &none           &mmv MOVE_UP    &none           &none                                                                                                           &none           &none           &msc SCRL_DOWN  &none           &none           &none
+                &none           &mmv MOVE_X(-20000) &mmv MOVE_LEFT &mkp MB2     &mmv MOVE_RIGHT &mmv MOVE_X(20000)                                                                                              &none           &msc SCRL_LEFT  &mkp MB1        &msc SCRL_RIGHT &none           &none
+                &none           &none           &none           &mmv MOVE_DOWN  &none           &none           &mkp MB1        &none           &none           &none           &none           &mkp MB2        &none           &none           &msc SCRL_UP    &none           &none           &none
+                &none           &none           &none           &mmv MOVE_Y(20000) &none                        &none           &none           &none           &none           &none           &none                           &none           &msc MOVE_Y(200) &none          &none           &none
+            >;
+        };
+
+        layer_Mouse3 {
+            bindings = <
+                &none           &mmv MOVE_RIGHT &none           &none           &none                                                                                                                                           &none           &none           &none           &none           &none
+                &none           &none           &none           &none           &none           &none                                                                                                           &none           &none           &mmv MOVE_Y(-400) &none         &none           &none
+                &none           &none           &none           &msc SCRL_DOWN  &none           &none                                                                                                           &kp Z           &none           &mmv MOVE_Y(-400) &none         &none           &none
+                &none           &none           &msc SCRL_LEFT  &mkp MB1        &msc SCRL_RIGHT &none                                                                                                           &mmv MOVE_X(-400) &mmv MOVE_X(-400) &mkp MB2    &mmv MOVE_X(400) &mmv MOVE_X(400) &none
+                &none           &none           &none           &msc SCRL_UP    &none           &none           &mkp MB1        &none           &mo LAYER_Mirror &none          &none           &mkp MB2        &none           &none           &mmv MOVE_Y(400) &none          &none           &none
+                &none           &none           &mmv MOVE_X(-10000) &mmv MOVE_X(-20000) &none                   &none           &mo LAYER_Mouse2 &none          &none           &none           &none                           &none           &mmv MOVE_Y(400) &none          &none           &none
             >;
         };
         
@@ -279,7 +291,7 @@
             bindings = <
                 &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
                 &trans          &trans          &trans          &trans          &trans          &trans                                                                                                          &trans          &trans          &trans          &trans          &trans          &none
-                &trans          &trans          &trans          &trans          &trans          &trans                                                                                                          &trans          &trans          &trans          &trans          &trans          &none
+                &trans          &trans          &trans          &kp LBKT        &kp LS(N6)      &trans                                                                                                          &trans          &kp LS(N4)      &kp RBKT        &trans          &trans          &none
                 &trans          &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                                                                          &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &kp LSHIFT
                 &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &kp LCTRL       &kp LSHIFT      &trans          &kp F11         &kp F12         &trans          &trans          &none
                 &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
