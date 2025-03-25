@@ -1,0 +1,10 @@
+layer_Mac {
+    bindings = <
+        &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &trans
+        &kp NUBS        &trans          &trans          &trans          &trans          &trans                                                                                                          &trans          &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &trans          &trans          &trans                                                                                                          &trans          &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &trans          &trans          &trans                                                                                                          &trans          &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &kp BSLH        &trans                          &trans          &kp GLOBE       &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans
+    >;
+};

@@ -1,0 +1,69 @@
+rgb_ug_status_macro: rgb_ug_status_macro_0 {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&rgb_ug RGB_STATUS>;
+};
+bt_0: bt_profile_macro_0 {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&out OUT_BLE &bt BT_SEL 0>;
+};
+bt_1: bt_profile_macro_1 {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&out OUT_BLE &bt BT_SEL 1>;
+};
+bt_2: bt_profile_macro_2 {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&out OUT_BLE &bt BT_SEL 2>;
+};
+bt_3: bt_profile_macro_3 {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&out OUT_BLE &bt BT_SEL 3>;
+};
+all_mod: all_mod{
+    compatible = "zmk,behavior-macro-one-param";
+    #binding-cells = <1>;
+    wait-ms = <0>;
+    bindings
+        = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT &kp RCTRL &kp RALT &kp RSHIFT>
+        , <&macro_param_1to1>
+        , <&macro_tap &kp 0>
+        , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT &kp RCTRL &kp RALT &kp RSHIFT>
+    ;
+};
+minimize: minimize{
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <0>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp SPACE>
+        , <&macro_release &kp LALT>
+        , <&macro_tap &kp N>
+    ;
+};
+maximize: maximize{
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <0>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp SPACE>
+        , <&macro_release &kp LALT>
+        , <&macro_tap &kp X>
+    ;
+};
+restore: restore{
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <0>;
+    bindings
+        = <&macro_press &kp LALT>
+        , <&macro_tap &kp SPACE>
+        , <&macro_release &kp LALT>
+        , <&macro_tap &kp R>
+    ;
+};

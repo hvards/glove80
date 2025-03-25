@@ -1,0 +1,10 @@
+layer_Special {
+    bindings = <
+        &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &trans
+        &trans          &all_mod N1     &all_mod N2     &all_mod N3     &all_mod N4     &all_mod N5                                                                                                     &all_mod N6     &all_mod N7     &all_mod N8     &all_mod N9     &all_mod 0      &trans
+        &trans          &all_mod Q      &all_mod W      &all_mod F      &all_mod P      &all_mod B                                                                                                      &all_mod J      &all_mod L      &all_mod U      &all_mod Y      &trans          &trans
+        &trans          &kp RA(W)       &all_mod R      &all_mod S      &kp LC(F23)     &all_mod G                                                                                                      &all_mod M      &all_mod N      &kp RA(Z)       &all_mod I      &kp RA(L)       &trans
+        &trans          &all_mod Z      &all_mod X      &all_mod C      &all_mod D      &all_mod V      &mo LAYER_FuncKeys &mo LAYER_Numbers &trans     &trans          &trans          &trans          &all_mod K      &all_mod H      &all_mod COMMA  &all_mod DOT    &trans          &trans
+        &trans          &trans          &trans          &trans          &trans                          &mo LAYER_Mouse &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans
+    >;
+};

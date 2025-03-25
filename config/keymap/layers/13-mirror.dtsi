@@ -1,0 +1,10 @@
+layer_Mirror {
+    bindings = <
+        &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                                                                                                        &kp F6            &kp F7          &kp F8          &kp F9          &kp F10
+        &kp GRAVE       &kp N1          &kp DEL         &kp N3          &kp N4          &kp N5                                                                                                      &kp N6            &kp N7            &kp N8          &kp BACKSPACE   &kp N0          &none
+        &kp TAB         &kp SEMI        &kp Y           &kp U           &kp L           &kp J                                                                                                       &kp J             &kp L             &kp U           &kp Y           &kp SEMI        &kp HOME
+        &kp ESC         &kp O           &kp I           &kp E           &kp N           &kp M                                                                                                       &kp M             &kp N             &kp E           &kp I           &kp O           &kp SQT
+        &kp NUBS        &kp FSLH        &kp DOT         &kp COMMA       &kp H           &kp K           &kp LSHIFT      &kp LALT        &mo LAYER_Macro0 &kp F24         &kp RET     &kp SPACE      &kp K             &kp H             &kp COMMA       &kp DOT         &kp FSLH        &kp END
+        &magic LAYER_Magic 0 &kp LEFT   &kp DOWN        &kp UP          &kp RIGHT                       &kp LCTRL       &sk RALT        &mo LAYER_Mouse &mo LAYER_Lower &kp LCTRL &mo LAYER_Special                   &kp LEFT          &kp DOWN        &kp UP          &kp RIGHT       &kp PG_DN
+    >;
+};

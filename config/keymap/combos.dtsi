@@ -1,0 +1,8 @@
+combos {
+	compatible = "zmk,combos";
+	combo_caps {
+		timeout-ms = <500>;
+		key-positions = <LF4 LT1>;
+		bindings = <&caps_word>;
+	};
+};

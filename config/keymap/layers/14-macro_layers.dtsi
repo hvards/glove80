@@ -1,0 +1,30 @@
+layer_Macro0 {
+    bindings = <
+        &trans          &trans          &trans          &trans          &trans                                                                                                                          &trans          &trans          &trans          &trans          &none
+        &trans          &kp LS(RS(F13)) &kp LS(RS(F14)) &kp LS(RS(F15)) &kp LS(RS(F16)) &kp LS(RS(F17))                                                                                                 &kp LS(RS(F18)) &kp LS(RS(F19)) &kp LS(RS(F20)) &kp LS(RS(F21)) &kp LS(RS(F22)) &none
+        &trans          &kp LS(RS(F23)) &kp LS(RS(F24)) &kp LS(LC(F13)) &kp LS(LC(F14)) &kp LS(LC(F15))                                                                                                 &kp LS(LC(F16)) &kp LS(LC(F17)) &kp LS(LC(F18)) &kp LS(LC(F19)) &kp LS(LC(F20)) &none
+        &trans          &kp LS(LC(F21)) &restore        &kp LS(LC(F23)) &kp LS(LC(F24)) &kp LS(RC(F13))                                                                                                 &kp LS(RC(F14)) &minimize       &kp LS(RC(F16)) &kp LS(RC(F17)) &kp LS(RC(F18)) &none
+        &trans          &kp LS(RC(F19)) &maximize       &kp LS(RC(F21)) &kp LS(RC(F22)) &kp LS(RC(F23)) &trans          &trans          &trans          &trans          &trans         &mo LAYER_Macro1 &kp LS(RC(F24)) &kp LS(LA(F13)) &kp LS(LA(F14)) &kp LS(LA(F15)) &kp LS(LA(F16)) &none
+        &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &kp LS(RET)                     &trans          &trans          &trans          &trans          &none
+    >;
+};
+layer_Macro1 {
+    bindings = <
+        &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
+        &trans          &kp LS(LA(F18)) &kp LS(LA(F19)) &kp LS(LA(F20)) &kp LS(LA(F21)) &kp LS(LA(F22))                                                                                                 &kp LS(LA(F23)) &kp LS(LA(F24)) &kp LS(RA(F13)) &kp LS(RA(F14)) &kp LS(RA(F15)) &none
+        &trans          &kp LS(RA(F16)) &kp LS(RA(F17)) &kp LS(RA(F18)) &kp LS(RA(F19)) &kp LS(RA(F20))                                                                                                 &kp LS(RA(F21)) &kp LS(RA(F22)) &kp LS(RA(F23)) &kp LS(RA(F24)) &kp RS(LC(F13)) &none
+        &trans          &kp RS(LC(F14)) &kp RS(LC(F15)) &kp RS(LC(F16)) &kp RS(LC(F17)) &kp RS(LC(F18))                                                                                                 &kp RS(LC(F19)) &kp RS(LC(F20)) &kp RS(LC(F21)) &kp RS(LC(F22)) &kp RS(LC(F23)) &none
+        &trans          &kp RS(LC(F24)) &kp RS(RC(F13)) &kp RS(RC(F14)) &kp RS(RC(F15)) &kp RS(RC(F16)) &mo LAYER_Macro2 &trans         &trans          &trans          &trans          &trans          &kp RS(RC(F17)) &kp RS(RC(F18)) &kp RS(RC(F19)) &kp RS(RC(F20)) &kp RS(RC(F21)) &none
+        &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
+    >;
+};
+layer_Macro2 {
+    bindings = <
+        &trans          &trans          &trans          &trans          &trans                                                                                                                                          &trans          &trans          &trans          &trans          &none
+        &trans          &kp RS(RC(F23)) &kp RS(RC(F24)) &kp RS(LA(F13)) &kp RS(LA(F14)) &kp RS(LA(F15))                                                                                                 &kp RS(LA(F16)) &kp RS(LA(F17)) &kp RS(LA(F18)) &kp RS(LA(F19)) &kp RS(LA(F20)) &none
+        &trans          &kp RS(LA(F21)) &kp RS(LA(F22)) &kp RS(LA(F23)) &kp RS(LA(F24)) &kp RS(RA(F13))                                                                                                 &kp RS(RA(F14)) &kp RS(RA(F15)) &kp RS(RA(F16)) &kp RS(RA(F17)) &kp RS(RA(F18)) &none
+        &trans          &kp RS(RA(F19)) &kp RS(RA(F20)) &kp RS(RA(F21)) &kp RS(RA(F22)) &kp RS(RA(F23))                                                                                                 &kp RS(RA(F24)) &kp LC(RC(F13)) &kp LC(RC(F14)) &kp LC(RC(F15)) &kp LC(RC(F16)) &none
+        &trans          &kp LC(RC(F17)) &kp LC(RC(F18)) &kp LC(RC(F19)) &kp LC(RC(F20)) &kp LC(RC(F21)) &trans          &trans          &trans          &trans          &trans          &trans          &kp LC(RC(F22)) &kp LC(RC(F23)) &kp LC(RC(F24)) &kp LC(LA(F13)) &kp LC(LA(F14)) &none
+        &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &none
+    >;
+};

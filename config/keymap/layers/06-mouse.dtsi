@@ -1,0 +1,32 @@
+layer_Mouse {
+    bindings = <
+        &none           &mmv MOVE_RIGHT &none           &none           &none                                                                                                                                           &none           &none           &none           &none           &none
+        &none           &none           &none           &none           &none           &none                                                                                                           &none           &none           &mmv MOVE_Y(-10000) &none       &none           &none
+        &none           &none           &none           &msc SCRL_DOWN  &none           &none                                                                                                           &kp Z           &none           &mmv MOVE_UP    &none           &none           &none
+        &none           &none           &msc SCRL_LEFT  &mkp MB1        &msc SCRL_RIGHT &none                                                                                                           &mmv MOVE_X(-10000) &mmv MOVE_LEFT &mkp MB2     &mmv MOVE_RIGHT &mmv MOVE_X(10000) &none
+        &none           &none           &none           &msc SCRL_UP    &none           &none           &mkp MB1        &none           &mo LAYER_Mirror &none          &none           &mkp MB2        &none           &none           &mmv MOVE_DOWN  &none           &none           &none
+        &none           &none           &mmv MOVE_X(-10000) &mmv MOVE_X(-20000) &none                   &none           &mo LAYER_Mouse2 &none          &none           &none           &mo LAYER_Mouse3                &none           &mmv MOVE_Y(10000) &none        &none           &none
+    >;
+};
+
+layer_Mouse2 {
+    bindings = <
+        &none           &mmv MOVE_RIGHT &none           &none           &none                                                                                                                                           &none           &none           &none           &none           &none
+        &none           &none           &none           &mmv MOVE_Y(-10000) &none       &none                                                                                                           &none           &none           &msc MOVE_Y(-200) &none         &none           &none
+        &none           &none           &none           &mmv MOVE_UP    &none           &none                                                                                                           &none           &none           &msc SCRL_DOWN  &none           &none           &none
+        &none           &mmv MOVE_X(-10000) &mmv MOVE_LEFT &mkp MB2     &mmv MOVE_RIGHT &mmv MOVE_X(10000)                                                                                              &none           &msc SCRL_LEFT  &mkp MB1        &msc SCRL_RIGHT &none           &none
+        &none           &none           &none           &mmv MOVE_DOWN  &none           &none           &mkp MB1        &none           &none           &none           &none           &mkp MB2        &none           &none           &msc SCRL_UP    &none           &none           &none
+        &none           &none           &none           &mmv MOVE_Y(10000) &none                        &none           &none           &none           &none           &none           &none                           &none           &msc MOVE_Y(200) &none          &none           &none
+    >;
+};
+
+layer_Mouse3 {
+    bindings = <
+        &none           &mmv MOVE_RIGHT &none           &none           &none                                                                                                                                           &none           &none           &none           &none           &none
+        &none           &none           &none           &none           &none           &none                                                                                                           &none           &none           &mmv MOVE_Y(-400) &none         &none           &none
+        &none           &none           &none           &msc SCRL_DOWN  &none           &none                                                                                                           &kp Z           &none           &mmv MOVE_Y(-400) &none         &none           &none
+        &none           &none           &msc SCRL_LEFT  &mkp MB1        &msc SCRL_RIGHT &none                                                                                                           &mmv MOVE_X(-400) &mmv MOVE_X(-400) &mkp MB2    &mmv MOVE_X(400) &mmv MOVE_X(400) &none
+        &none           &none           &none           &msc SCRL_UP    &none           &none           &mkp MB1        &none           &mo LAYER_Mirror &none          &none           &mkp MB2        &none           &none           &mmv MOVE_Y(400) &none          &none           &none
+        &none           &none           &mmv MOVE_X(-10000) &mmv MOVE_X(-20000) &none                   &none           &mo LAYER_Mouse2 &none          &none           &none           &none                           &none           &mmv MOVE_Y(400) &none          &none           &none
+    >;
+};
