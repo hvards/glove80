@@ -28,10 +28,10 @@ all_mod: all_mod{
     #binding-cells = <1>;
     wait-ms = <0>;
     bindings
-        = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT &kp RCTRL &kp RALT &kp RSHIFT>
+        = <&macro_press &kp LCTRL &kp LALT &kp LSHIFT &kp RCTRL &kp RSHIFT>
         , <&macro_param_1to1>
         , <&macro_tap &kp 0>
-        , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT &kp RCTRL &kp RALT &kp RSHIFT>
+        , <&macro_release &kp LCTRL &kp LALT &kp LSHIFT &kp RCTRL &kp RSHIFT>
     ;
 };
 minimize: minimize{

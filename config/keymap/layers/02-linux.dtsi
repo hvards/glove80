@@ -5,6 +5,6 @@ layer_Linux {
         &trans          &trans          &trans          &trans          &trans          &trans                                                                                                          &trans          &trans          &trans          &trans          &trans          &trans
         &trans          &trans          &trans          &trans          &trans          &trans                                                                                                          &trans          &trans          &trans          &trans          &trans          &trans
         &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
-        &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans
+        &trans          &trans          &trans          &kp BSLH        &trans                          &trans          &trans          &trans          &trans          &trans          &trans                          &trans          &trans          &trans          &trans          &trans
     >;
 };
