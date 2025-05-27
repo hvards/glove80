@@ -6,22 +6,34 @@ rgb_ug_status_macro: rgb_ug_status_macro_0 {
 bt_0: bt_profile_macro_0 {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&out OUT_BLE &bt BT_SEL 0>;
+    bindings 
+        = <&out OUT_BLE &bt BT_SEL 0>
+        , <&tog_on LAYER_Linux>
+        , <&tog_off LAYER_Mac>;
 };
 bt_1: bt_profile_macro_1 {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&out OUT_BLE &bt BT_SEL 1>;
+    bindings 
+        = <&out OUT_BLE &bt BT_SEL 1>
+        , <&tog_on LAYER_Linux>
+        , <&tog_off LAYER_Mac>;
 };
 bt_2: bt_profile_macro_2 {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&out OUT_BLE &bt BT_SEL 2>;
+    bindings 
+        = <&out OUT_BLE &bt BT_SEL 2>
+        , <&tog_on LAYER_Mac>
+        , <&tog_off LAYER_Linux>;
 };
 bt_3: bt_profile_macro_3 {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&out OUT_BLE &bt BT_SEL 3>;
+    bindings 
+        = <&out OUT_BLE &bt BT_SEL 3>
+        , <&tog_on LAYER_Linux>
+        , <&tog_off LAYER_Mac>;
 };
 all_mod: all_mod{
     compatible = "zmk,behavior-macro-one-param";
@@ -65,5 +77,14 @@ restore: restore{
         , <&macro_tap &kp SPACE>
         , <&macro_release &kp LALT>
         , <&macro_tap &kp R>
+    ;
+};
+onenine: onenine{
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <0>;
+    bindings
+        = <&macro_press &kp N1>
+        , <&macro_press &kp N9>
     ;
 };
