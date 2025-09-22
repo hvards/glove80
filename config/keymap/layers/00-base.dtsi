@@ -4,7 +4,7 @@ layer_Base {
         &none           &kp N1          &kp DEL         &kp HOME        &kp PG_UP       &none                                                                                                       &none             &kp PG_DN         &kp END         &kp BACKSPACE   &kp N0          &none
         &kp GRAVE       &kp Q           &kp W           &kp F           &kp P           &kp B                                                                                                       &kp J             &kp L             &kp U           &kp Y           &kp SEMI        &kp LS(N5)
         &kp ESC         &hml LGUI A     &hml LALT R     &hml LSHIFT S   &hml LCTRL T    &kp G                                                                                                       &kp M             &hmr LCTRL N      &hmr LSHIFT E   &hmr LALT I     &hmr LGUI O     &kp SQT
-        &kp Z           &lt LAYER_LMT MINUS &kp X       &kp C           &kp D           &kp V           &kp SPACE       &mo LAYER_Numbers &none          &kp F6          &kp RET      &kp LSHIFT    &kp K             &kp H             &commacolon     &dotcolon       &lt LAYER_RMT FSLH &kp END
+        &kp Z           &lt LAYER_LMT MINUS &kp X       &kp C           &kp D           &kp V           &kp SPACE       &mo LAYER_Numbers &mo LAYER_Lower &kp F6         &kp RET      &kp LSHIFT    &kp K             &kp H             &commacolon     &dotcolon       &lt LAYER_RMT FSLH &kp END
 		&magic LAYER_Magic 0 &mo LAYER_FuncKeys &kp EQUAL &kp NUBS      &mo LAYER_Lower                 &kp TAB         &sk RALT        &mo LAYER_Mouse  &mo LAYER_Lower &none        &mo LAYER_Special               &kp LEFT          &kp DOWN        &kp UP          &kp RIGHT       &kp PG_DN
     >;
 };
